@@ -1,11 +1,11 @@
 Summary:	C/C++ Configuration File Library
 Name:		libconfig
-Version:	1.1.3
-Release:	0.1
+Version:	1.2
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	c0cd4b5ed44bbc1dca32eafaac377e33
+# Source0-md5:	fa52507f0db285673f23b7193af4efd4
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
