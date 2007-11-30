@@ -2,13 +2,18 @@ Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
 Version:	1.2
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
 # Source0-md5:	fa52507f0db285673f23b7193af4efd4
+Patch0:		%{name}-info.patch
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool >= 2:1.5
+BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -97,6 +102,7 @@ Statyczna biblioteka libconfig++.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -118,6 +124,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
+
+%post devel
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
+%postun devel
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
 
 %post	c++ -p /sbin/ldconfig
 %postun	c++ -p /sbin/ldconfig
