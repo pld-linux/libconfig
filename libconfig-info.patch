@@ -1,0 +1,14 @@
+--- libconfig-1.2/doc/libconfig.texi.orig	2007-10-15 09:05:25.000000000 +0200
++++ libconfig-1.2/doc/libconfig.texi	2007-11-30 22:56:49.290752540 +0100
+@@ -14,9 +14,9 @@
+ 
+ @comment %**end of header
+ 
+-@dircategory Software libraries
++@dircategory Libraries:
+ @direntry
+-* libconfig: (libconfig).       A Library For Manipulating Structured Configuration Files
++* libconfig: (libconfig).		A Library For Manipulating Structured Configuration Files
+ @end direntry
+ 
+ 
