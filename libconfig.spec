@@ -1,12 +1,12 @@
 Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
-Version:	1.2.1
+Version:	1.3
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	53e2fc5394c456add5581606c5165dd7
+# Source0-md5:	00f2ebfacb5a0b7b02b409b751432b80
 Patch0:		%{name}-info.patch
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
 BuildRequires:	autoconf >= 2.50
@@ -138,7 +138,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_libdir}/libconfig.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libconfig.so.5
+%attr(755,root,root) %ghost %{_libdir}/libconfig.so.6
 
 %files devel
 %defattr(644,root,root,755)
@@ -155,7 +155,7 @@ rm -rf $RPM_BUILD_ROOT
 %files c++
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libconfig++.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libconfig++.so.5
+%attr(755,root,root) %ghost %{_libdir}/libconfig++.so.6
 
 %files c++-devel
 %defattr(644,root,root,755)
