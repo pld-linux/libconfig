@@ -2,12 +2,13 @@ Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
 Version:	1.3.2
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
 # Source0-md5:	094a82afd382aa2305c6cc3c06025c2d
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-am.patch
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -103,6 +104,7 @@ Statyczna biblioteka libconfig++.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
