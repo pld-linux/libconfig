@@ -1,12 +1,16 @@
+# TODO:
+# - Unpackaged /usr/share/info/dir on upgrade to 1.4.5...
+#   Is this bogus? rm in %install?
+#
 Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
-Version:	1.4.1
-Release:	1
+Version:	1.4.5
+Release:	0.1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	7b2885272802b3ace56d3c8b445a4588
+# Source0-md5:	f2219e1b2501e7296a7d3e971c63666a
 Patch0:		%{name}-info.patch
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
 BuildRequires:	autoconf >= 2.50
