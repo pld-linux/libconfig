@@ -1,7 +1,3 @@
-# TODO:
-# - Unpackaged /usr/share/info/dir on upgrade to 1.4.5...
-#   Is this bogus? rm in %install?
-#
 Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
@@ -122,6 +118,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm -f $RPM_BUILD_ROOT%{_datadir}/info/dir
 
 %clean
 rm -rf $RPM_BUILD_ROOT
