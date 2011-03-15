@@ -1,12 +1,12 @@
 Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
-Version:	1.4.6
+Version:	1.4.7
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	f83d20588941e9b306fbcbb6e9630aac
+# Source0-md5:	d57da7a91aadbfd53afedb5c1bade5f4
 Patch0:		%{name}-info.patch
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
 BuildRequires:	autoconf >= 2.50
