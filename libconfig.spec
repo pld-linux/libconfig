@@ -2,7 +2,7 @@ Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
 Version:	1.4.9
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
