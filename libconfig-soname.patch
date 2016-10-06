@@ -1,0 +1,15 @@
+Library interface has changed, but in compatible manner, so versioning
+should be changed from 11:0:2 (.so.9.2.0) to 12:0:3 (.so.9.3.0) instead
+of 11:1:3 (.so.8.3.1).
+
+--- libconfig-1.6/lib/Makefile.am.orig	2015-12-31 21:46:42.000000000 +0100
++++ libconfig-1.6/lib/Makefile.am	2016-10-06 05:37:00.327475124 +0200
+@@ -18,7 +18,7 @@
+ #
+ # For more info see section 6.3 of the GNU Libtool Manual.
+ 
+-VERINFO = -version-info 11:1:3
++VERINFO = -version-info 12:0:3
+ 
+ ## Flex
+ PARSER_PREFIX = libconfig_yy

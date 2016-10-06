@@ -1,16 +1,19 @@
 Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
-Version:	1.5
-Release:	2
+Version:	1.6
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	a939c4990d74e6fc1ee62be05716f633
+#Source0Download: https://github.com/hyperrealm/libconfig/releases
+Source0:	https://github.com/hyperrealm/libconfig/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	2ccd24b6a2ee39f7ff8a3badfafb6539
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-soname.patch
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	flex
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2.0
 BuildRequires:	texinfo
@@ -35,7 +38,7 @@ Jest bardzo mała, dzięki czemu dobrze nadaje się do systemów
 ograniczonych pamięciowo, takich jak palmtopy.
 
 Biblioteka ma dowiązania do języków C i C++. Działa na systemach
-unikowych zgodnych z POSIX (GNU/Linux, Mac OS X, Solaris, FreeBSD)
+uniksowych zgodnych z POSIX (GNU/Linux, Mac OS X, Solaris, FreeBSD)
 oraz Windows (2000, XP i późniejszych).
 
 %package devel
@@ -103,6 +106,10 @@ Statyczna biblioteka libconfig++.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+
+# force regeneration, included files are outdated
+%{__rm} lib/scanner.[ch]
 
 %build
 %{__libtoolize}
@@ -110,8 +117,10 @@ Statyczna biblioteka libconfig++.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
-%{__make}
+%configure \
+	--disable-silent-rules
+# -j1 to workaround flex rebuild race
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -147,6 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libconfig.la
 %{_includedir}/libconfig.h
 %{_pkgconfigdir}/libconfig.pc
+%{_libdir}/cmake/libconfig
 %{_infodir}/libconfig.info*
 
 %files static
@@ -164,6 +174,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libconfig++.la
 %{_includedir}/libconfig.h++
 %{_pkgconfigdir}/libconfig++.pc
+%{_libdir}/cmake/libconfig++
 
 %files c++-static
 %defattr(644,root,root,755)
