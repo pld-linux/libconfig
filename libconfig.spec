@@ -1,15 +1,14 @@
 Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
-Version:	1.6
+Version:	1.7.2
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 #Source0Download: https://github.com/hyperrealm/libconfig/releases
 Source0:	https://github.com/hyperrealm/libconfig/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	2ccd24b6a2ee39f7ff8a3badfafb6539
+# Source0-md5:	d666f0ca093906d34d6e1e4890053e62
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-soname.patch
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -106,7 +105,6 @@ Statyczna biblioteka libconfig++.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 # force regeneration, included files are outdated
 %{__rm} lib/scanner.[ch]
@@ -124,8 +122,12 @@ Statyczna biblioteka libconfig++.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libconfig*.la
 
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir
 
@@ -148,12 +150,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_libdir}/libconfig.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libconfig.so.9
+%attr(755,root,root) %ghost %{_libdir}/libconfig.so.11
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libconfig.so
-%{_libdir}/libconfig.la
 %{_includedir}/libconfig.h
 %{_pkgconfigdir}/libconfig.pc
 %{_libdir}/cmake/libconfig
@@ -166,12 +167,11 @@ rm -rf $RPM_BUILD_ROOT
 %files c++
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libconfig++.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libconfig++.so.9
+%attr(755,root,root) %ghost %{_libdir}/libconfig++.so.11
 
 %files c++-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libconfig++.so
-%{_libdir}/libconfig++.la
 %{_includedir}/libconfig.h++
 %{_pkgconfigdir}/libconfig++.pc
 %{_libdir}/cmake/libconfig++
