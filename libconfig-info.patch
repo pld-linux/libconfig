@@ -1,8 +1,8 @@
---- libconfig-1.3/doc/libconfig.texi.orig	2008-04-04 08:15:53.000000000 +0200
-+++ libconfig-1.3/doc/libconfig.texi	2008-07-11 23:46:30.026042250 +0200
-@@ -14,9 +14,9 @@
+--- libconfig-1.7.3/doc/libconfig.texi.orig	2023-03-27 20:27:10.705334678 +0200
++++ libconfig-1.7.3/doc/libconfig.texi	2023-03-27 20:27:35.771865548 +0200
+@@ -15,9 +15,9 @@
  
- @comment %**end of header
+ @firstparagraphindent insert
  
 -@dircategory Software libraries
 +@dircategory Libraries:
