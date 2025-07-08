@@ -104,7 +104,7 @@ Statyczna biblioteka libconfig++.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 # force regeneration, included files are outdated
 %{__rm} lib/scanner.[ch]
