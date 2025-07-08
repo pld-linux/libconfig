@@ -1,15 +1,15 @@
 Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
-Version:	1.7.3
+Version:	1.8.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 #Source0Download: https://github.com/hyperrealm/libconfig/releases
 Source0:	https://github.com/hyperrealm/libconfig/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	898fbd4ccac2eb3913a86883ab9b2e6c
+# Source0-md5:	873f8c5eab2fb450156bc1e8c1762bef
 Patch0:		%{name}-info.patch
-URL:		http://www.hyperrealm.com/main.php?s=libconfig
+URL:		https://hyperrealm.com/oss_libconfig.shtml
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	flex
@@ -117,6 +117,7 @@ Statyczna biblioteka libconfig++.
 %{__automake}
 %configure \
 	--disable-silent-rules
+
 # -j1 to workaround flex rebuild race
 %{__make} -j1
 
@@ -150,7 +151,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_libdir}/libconfig.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libconfig.so.11
+%attr(755,root,root) %ghost %{_libdir}/libconfig.so.15
 
 %files devel
 %defattr(644,root,root,755)
@@ -167,7 +168,7 @@ rm -rf $RPM_BUILD_ROOT
 %files c++
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libconfig++.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libconfig++.so.11
+%attr(755,root,root) %ghost %{_libdir}/libconfig++.so.15
 
 %files c++-devel
 %defattr(644,root,root,755)
