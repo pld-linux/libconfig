@@ -1,13 +1,13 @@
 Summary:	C Configuration File Library
 Summary(pl.UTF-8):	Biblioteka C do plików konfiguracyjnych
 Name:		libconfig
-Version:	1.8.1
+Version:	1.8.3
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 #Source0Download: https://github.com/hyperrealm/libconfig/releases
 Source0:	https://github.com/hyperrealm/libconfig/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	873f8c5eab2fb450156bc1e8c1762bef
+# Source0-md5:	79be09dd1aec5b41c7d10815de8c6f99
 Patch0:		%{name}-info.patch
 URL:		https://hyperrealm.com/oss_libconfig.shtml
 BuildRequires:	autoconf >= 2.50
